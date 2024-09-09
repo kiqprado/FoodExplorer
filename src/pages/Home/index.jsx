@@ -3,7 +3,7 @@ import { Container } from './styles'
 export function Home() {
   return(
     <Container>
-      <h1>FoodExplorer</h1>
+      <h1>Food Explorer</h1>
     </Container>
   )
 }

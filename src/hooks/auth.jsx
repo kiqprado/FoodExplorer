@@ -9,7 +9,7 @@ function AuthProvider({ children }) {
 
   async function signIn({ email, password }) {
     try {
-      const reponse = await api.post('/sessions', { email, password })
+      const response = await api.post('/sessions', { email, password })
       const { user, token } = response.data
 
       api.defaults.headers.common['authorization'] = `Bearer ${token}`
@@ -39,7 +39,7 @@ function AuthProvider({ children }) {
     const user = localStorage.getItem('@foodexplorer:user')
 
     if(token && user ) {
-      api.defaults.headers.common['authorization'] = ` Bearer ${token}`
+      api.defaults.headers.common['authorization'] = `Bearer ${token}`
 
       setData({
         token,

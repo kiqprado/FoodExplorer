@@ -8,7 +8,7 @@ export function Logo({ size, isFooter = false }) {
     <Container size={size} to="/">
       <imgm src={ isFooter ? PolygonGrey : Polygon}/>
 
-      <h1></h1>
+      <h1>food explorer</h1>
     </Container>
   )
 }

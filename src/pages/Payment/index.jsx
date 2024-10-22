@@ -49,14 +49,14 @@ export function Payment() {
             <Button
               title='PIX'
               icon={MdPix}
-              onClick={() => selectMethod('PIX')}
+              onClick={() => setSelectMethod('PIX')}
               active={(selectMethod === 'PIX').toString()}
             />
 
             <Button
               title='Crédito'
               icon={FaCreditCard}
-              onClick={() => selectMethod('Crédito')}
+              onClick={() => setSelectMethod('Crédito')}
               active={(selectMethod === 'Crédito').toString()}
             />
           </div>
@@ -130,7 +130,7 @@ export function Payment() {
       </main>
 
       <Footer />
-      
+
     </Container>
   )
 }

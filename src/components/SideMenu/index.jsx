@@ -11,7 +11,7 @@ import { Footer } from '../Footer'
 
 import { Container, Header, Content } from './styles'
 
-export function SideMeNU({ menuIsOpen, closeMenu, onSearch }) {
+export function SideMenu({ menuIsOpen, closeMenu, onSearch }) {
   const { signOut } = useAuth()
 
   const navigate = useNavigate()

@@ -1,4 +1,4 @@
-import { PiX, PiPlus } from ' react-icons/pi'
+import { PiX, PiPlus } from 'react-icons/pi'
 
 import { Container } from './styles'
 

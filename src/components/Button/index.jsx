@@ -1,4 +1,4 @@
-import { Container } from 'styled-components'
+import { Container } from './styles'
 
 export function Button({ icon: Icon, title, ...rest}){
   return(

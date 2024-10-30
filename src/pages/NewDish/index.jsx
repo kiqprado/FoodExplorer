@@ -12,7 +12,7 @@ import { InputImg } from '../../components/InputImg'
 import { InputLabel } from '../../components/InputLabel'
 import { InputSelect } from '../../components/InputSelect'
 import { DishStuff } from '../../components/DishStuff'
-import { TextArea } from '../../components/Textarea'
+import { Textarea } from '../../components/Textarea'
 import { Button } from '../../components/Button'
 
 export function NewDish() {
@@ -163,7 +163,7 @@ async function handleNewDish() {
             title="Descrição"
             htmlFor="dishDescription"
           />
-          <TextArea
+          <Textarea
             id="dishDescription"
             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição..."
             onChange={e => setDescription(e.target.value)}

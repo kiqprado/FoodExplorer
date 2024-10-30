@@ -11,7 +11,7 @@ import { InputImg } from '../../components/InputImg'
 import { InputLabel } from '../../components/InputLabel'
 import { InputSelect } from '../../components/InputSelect'
 import { DishStuff } from '../../components/DishStuff'
-import { TextArea } from '../../components/TextArea'
+import { Textarea } from '../../components/TextArea'
 import { Button } from '../../components/Button'
 
 import { Container, Form, StuffTags, Action } from './styles'
@@ -167,7 +167,7 @@ export function EditDish() {
             title="Descrição"
             htmlFor="dishDescription"
           />
-          <TextArea
+          <Textarea
             id="dishDescription"
             placeholder="A Salada César é uma opção refrescante para o verão."
             onChange={e => setDescription(e.target.value)}

@@ -6,7 +6,7 @@ import PolygonGrey from '../../assets/PolygonGrey.svg'
 export function Logo({ size, isFooter = false }) {
   return(
     <Container size={size} to="/">
-      <imgm src={ isFooter ? PolygonGrey : Polygon}/>
+      <img src={ isFooter ? PolygonGrey : Polygon} alt="" />
 
       <h1>food explorer</h1>
     </Container>

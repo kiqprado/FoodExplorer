@@ -48,18 +48,16 @@ export function SideMenu({ menuIsOpen, closeMenu, onSearch }) {
           
           <div className="line">
             <ButtonText
+              title="Meus favoritos"
               onClick={handleFavorites}
-            >
-              Meus Favoritos
-            </ButtonText>
+            />
           </div>
 
           <div className="line">
             <ButtonText
+              title="Sair"
               onClick={signOut}
-            >
-              Sair
-            </ButtonText>
+            />
           </div>
         </Content>
       </main>

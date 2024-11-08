@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 
-
 import { Container, Form } from './styles'
 import { Logo } from '../../components/Logo'
 import { InputLabel } from '../../components/InputLabel'
@@ -13,10 +12,10 @@ export function SignIn() {
   const [ email, setEmail ] = useState("")
   const [ password, setPassword ] = useState("")
 
-  const { SignIn } = useAuth()
+  const { signIn } = useAuth()
 
   function handleSignIn() {
-    SignIn({email, password})
+    signIn({ email, password })
   }
 
   return(

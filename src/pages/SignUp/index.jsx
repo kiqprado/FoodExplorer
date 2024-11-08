@@ -22,7 +22,7 @@ export function SignUp() {
       return alert("Por favor, preencha todos os campos!")
     }
 
-    api.post("/users", {
+    api.post('/users', {
       name,
       email,
       password

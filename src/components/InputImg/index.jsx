@@ -12,7 +12,6 @@ export function InputImg({ title, ...rest }) {
         <input
           id="imageDish"
           type="file"
-          title={title}
           {...rest}
         />
 

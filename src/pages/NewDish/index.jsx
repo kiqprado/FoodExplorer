@@ -17,6 +17,7 @@ import { Button } from '../../components/Button'
 
 export function NewDish() {
   const [ avatar, setAvatar] = useState(null)
+  const [ avatarName, setAvatarName ] = useState("")
 
   const [ title, setTitle ] = useState("")
   const [ category, setCategory ] = useState("")
@@ -38,38 +39,47 @@ export function NewDish() {
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted))
   }
 
-async function handleNewDish() {
-  if(!title) {
-    alert("Os Pratos devem possuir um Nome para serem adicionados ao catalogo.")
+  function handleAvatarChange(e) {
+    const file = e.target.files[0]
+    if(file) {
+      setAvatar(file)
+      setAvatarName(file.name)
+    }
   }
+
+  async function handleNewDish() {
+    if(!title) {
+      alert("Os Pratos devem possuir um Nome para serem adicionados ao catalogo.")
+    }
   
-  if(newIngredient) {
-    alert("Existe um ingrediente no campo preenchido mas não adicionado a lista, adicione ou exclua o mesmo.")
+    if(newIngredient) {
+      alert("Existe um ingrediente no campo preenchido mas não adicionado a lista, adicione ou exclua o mesmo.")
+    }
+
+    if(!price) {
+      alert("Informe o valor do seu Prato.")
+    }
+
+    if(avatar) {
+      const fileUploadForm = new FormData()
+      fileUploadForm.append('avatar', avatar)
+
+      const response = await api.patch('/dishes/avatar', fileUploadForm)
+      const avatarFilename = response.data.filename
+
+      await api.post("/dishes", {
+        title,
+        category_name: category,
+        ingredients,
+        price,
+        description,
+        avatar: avatarFilename
+      })
+
+      alert("Prato cadastrado com sucesso!")
+      navigate('/')
+    }
   }
-  if(!price) {
-    alert("Informe o valor do seu Prato.")
-  }
-
-  if(avatar) {
-    const fileUploadForm = new FormData()
-    fileUploadForm.append('avatar', avatar)
-
-    const response = await api.patch('/dishes/avatar', fileUploadForm)
-    const avatarFilename = response.data.filename
-
-    await api.post("/dishes", {
-      title,
-      category_name: category,
-      ingredients,
-      price,
-      description,
-      avatar: avatarFilename
-    })
-
-    alert("Prato cadastrado com sucesso!")
-    navigate('/')
-  }
-}
 
   return(
     <Container>
@@ -89,8 +99,8 @@ async function handleNewDish() {
             htmlFor="dishName"
           />
           <InputImg
-            title="Selecione a imagem"
-            onChange={e => setAvatar(e.target.files[0])}
+            title={ avatarName || "Selecione a imagem" }
+            onChange={handleAvatarChange}
           />
           </div>
 
